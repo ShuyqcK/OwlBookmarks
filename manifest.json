@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name"            : "owl-bookmarks",
+  "description"     : "Bookmark finder helper",
+  "short_name"      : "owl-bkms",
+  "version"         : "0.1",
+  "browser_action": {
+    "default_icon" : "images/owl-128.png"
+  },
+  "background": {
+    "scripts": ["lib/jquery/jquery.min.js","app/background.js","app/dispatcher.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*","https://*/*"],
+      "css": ["css/bkm-bootstrap3.css", "css/style.css"],
+      "js": ["app/content.js", "app/dispatcher.js"]
+    }
+  ],
+  "commands": {
+    "toggle-favorite": {
+      "suggested_key": {
+        "default": "Ctrl+B"
+      },
+      "description": "Display owl-bookmarks"
+    }
+  },
+  "permissions": [
+    "debugger",
+    "storage",
+    "activeTab",
+    "bookmarks"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com; object-src 'self'"
+}
