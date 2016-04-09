@@ -9,6 +9,7 @@ var bkm = {
              <div id="bkm_ext">
                  <div id="bkm_ext_overlay"></div>
                  <div id="bkm_ext_container-global">
+                     <div id="bkm_ext_owl"></div>
                      <div id="bkm_ext_form" class="row-fluid">
                          <div class="col-md-12">
                             <input autofocus="true" placeholder="recherche..." class="form-control" id="bkm_ext_search_input"/>
