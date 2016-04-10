@@ -95,7 +95,7 @@
     padding: 2px;
  }#bkm_ext_container-global #bkm_ext_list_container-wrap #bkm_ext_list_container{
     overflow-y: scroll !important;
-    height: 100% !important;
+    height: 90% !important;
     margin: 7px -17px !important;
     /*margin: 17px !important;*/
  }

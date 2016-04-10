@@ -45,6 +45,8 @@ var bkm = {
             var $base = $(this.tpl());
             var $list = $('#bkm_ext_list_container', $base);
             for (var index in bookmarks){
+                bookmarks[index].d_title = bookmarks[index].getTitle(bookmarks[index]);
+
                 var $element = $(this.element.tpl(bookmarks[index]));
                 $list.append($element);
             }
@@ -57,11 +59,15 @@ var bkm = {
                 var bookmark = bookmarks[index];
                 if($q){
                     if(bookmark.title.toLowerCase().indexOf($q.toLowerCase()) > -1){
-                        var $element = $(this.element.tpl(bookmarks[index]));
+                        var qindex = bookmark.getTitle(bookmark).toLowerCase().indexOf($q.toLowerCase());
+                        var re = new RegExp($q,"gi");
+                        bookmark.d_title = bookmark.getTitle(bookmark).replace(re,"<span style='color:#7FC8BD'>"+bookmark.getTitle(bookmark).substr(qindex,$q.length)+"</span>");
+                        var $element = $(this.element.tpl(bookmark));
                         $list.append($element);
                     }
                 }else{
-                    var $element = $(this.element.tpl(bookmarks[index]));
+                    bookmark.d_title = bookmark.getTitle(bookmark);
+                    var $element = $(this.element.tpl(bookmark));
                     $list.append($element);
                 }
             };
@@ -76,11 +82,13 @@ var bkm = {
             chrome.bookmarks.getTree(function (node) {
                 var recurse = function (node) {
                     if (node.url) {
-                        var max = 50;
                         if (node.title) {
-                            node.d_title = node.title;
-                            if (node.d_title.length > max) {
-                                node.d_title = node.d_title.substring(0, max) + '...';
+                            node.getTitle = function(node){
+                                var max = 50;
+                                if (node.title.length > max) {
+                                    return node.title.substring(0, max) + '...';
+                                }
+                                return node.title;
                             }
                         }
                         self._bookmarks.push(node);
