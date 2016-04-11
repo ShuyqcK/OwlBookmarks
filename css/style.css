@@ -53,7 +53,7 @@
     box-shadow: none;
 }
 #bkm_ext_container-global .bkm_ext_element{
-    min-height:10rem !important;
+    min-height:12em !important;
 
 }#bkm_ext_container-global .bkm_ext_element .panel:hover{
      -webkit-transform: translateY(-0.3rem) !important;

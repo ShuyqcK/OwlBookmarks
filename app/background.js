@@ -10,13 +10,13 @@ var bkm = {
                  <div id="bkm_ext_overlay"></div>
                  <div id="bkm_ext_container-global">
                      <div id="bkm_ext_owl"></div>
-                     <div id="bkm_ext_form" class="row-fluid">
+                     <div id="bkm_ext_form" class="row">
                          <div class="col-md-12">
                             <input autofocus="true" placeholder="recherche..." class="form-control" id="bkm_ext_search_input"/>
                          </div>
                      </div>
                      <div id="bkm_ext_list_container-wrap">
-                        <div id="bkm_ext_list_container" class="row-fluid"></div>
+                        <div id="bkm_ext_list_container" class="row"></div>
                      </div>
                  </div>
              </div>
