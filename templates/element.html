@@ -1,0 +1,17 @@
+<div class="bkm_ext-item col-md-4 col-lg-2 col-sm-12 ">
+    <div class="content">
+        <a class="bkm_ext-item-link" target="_blank" href="<%= element.url %>"></a>
+        <h4>
+            <img width="16" height="16" class="favicon" src="https://plus.google.com/_/favicon?domain_url=<%= element.url %>"/>
+            <%= element.getTitle() %>
+        </h4>
+        <% if (element.tags.length > 0) { %>
+            <div class="bkm_ext-item-tags">
+                <% _.each(element.tags, function(tag) { %>
+                    <span class="tag"><%= tag %></span>&nbsp;
+                    <!--<span class="small text-muted"><%= tag %></span>&nbsp;-->
+                <% }); %>
+            </div>
+        <% } %>
+    </div>
+</div>

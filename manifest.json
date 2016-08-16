@@ -8,21 +8,27 @@
     "default_icon" : "images/owl-128.png"
   },
   "background": {
-    "scripts": ["lib/jquery/jquery.min.js","app/background.js","app/dispatcher.js"]
+    "scripts": ["lib/require.js","lib/jquery.js","app/background.js","app/dispatcher.js"]
   },
   "content_scripts": [
     {
       "matches": ["http://*/*","https://*/*"],
-      "css": ["css/bkm-bootstrap3.css", "css/style.css"],
-      "js": ["app/content.js", "app/dispatcher.js"]
+      "css": ["css/bkm-bootstrap3.css", "css/style.css", "lib/jquery-tag-editor/jquery.tag-editor.css"],
+      "js": ["app/content.js", "app/dispatcher.js", "lib/jquery.js", "lib/jquery-tag-editor/jquery.tag-editor.min.js"]
     }
   ],
   "commands": {
-    "toggle-favorite": {
+    "bkm-ext-toggle": {
       "suggested_key": {
         "default": "Ctrl+B"
       },
       "description": "Display owl-bookmarks"
+    },
+    "bkm-ext-add": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Display owl-bookmarks form"
     }
   },
   "permissions": [
